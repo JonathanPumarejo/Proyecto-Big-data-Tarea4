@@ -1,1 +1,7 @@
-
+> db.CLIENTES.insertOne({
+  NOMBRE: "Laura Mendoza",
+  NUMERO_DE_CONTACTO: "3124567890",
+  DIRECCIÓN: "Calle 20 #10-15",
+  CORREO: "laura.mendoza@gmail.com",
+  HISTORIAL_DE_PEDIDO: 5
+})
