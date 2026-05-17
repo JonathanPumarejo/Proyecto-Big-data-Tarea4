@@ -10,3 +10,67 @@
   acknowledged: true,
   insertedId: ObjectId('6a093deb2873789924180639')
 }
+//SELECCIÓN
+>db.REPARTIDORES.find({ZONA_ASIGNADA: "Norte"})
+{
+  _id: ObjectId('69b791125861f6894b593a8d'),
+  NOMBRE: 'Carlos Pérez',
+  TRANSPORTE: 'Moto',
+  ZONA_ASIGNADA: 'Norte',
+  PEDIDOS_ENTREGADOS: 50
+}
+//ACTUALIZACIÓN
+>db.REPARTIDORES.updateOne(
+
+  {NOMBRE: "Pedro Sánchez"},
+
+  {$set: {ZONA_ASIGNADA: "Centro"}}
+
+)
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+// ELIMINACIÓN
+>db.ZONAS.deleteOne({NOMBRE_ZONA: "Oeste"})
+
+//FILTROS
+>db.CLIENTES.find({HISTORIAL_DE_PEDIDO: {$gt: 30}})
+ //Resultados
+{
+  _id: ObjectId('69b77c2b5861f6894b593a50'),
+  NOMBRE: 'JONATHAN DAVID PUMAREJO GONZALEZ',
+  'NUMERO DE CONTACTO': '3125697845',
+  'DIRECCIÓN': 'TRASVERSAL 28 BRR FUNDADORES',
+  CORREO: 'jdpumagonzalez@hotmail.com',
+  HISTORIAL_DE_PEDIDO: 60
+}
+{
+  _id: ObjectId('69b78a065861f6894b593a5a'),
+  NOMBRE: 'VICTOR MANUEL TARIFFA DAZA',
+  'NUMERO DE CONTACTO': '3154568976',
+  'DIRECCIÓN': 'DG 17 #26-18',
+  CORREO: 'victormanueldaza@gmail.com',
+  HISTORIAL_DE_PEDIDO: 50
+}
+
+//CONTAR
+>db.REPARTIDORES.countDocuments()
+<4
+
+//SUMA
+db.productos.aggregate([
+  { $group: { _id: null, sumaPrecios: { $sum: "$Precio total" } } }
+])
+//resultado
+[{ "_id": null, "sumaPrecios": 125000 }]
+
+//PROMEDIAR
+db.productos.aggregate([
+  { $group: { _id: null, promedioPrecios: { $avg: "$Precio total" } } }
+])
+
+
