@@ -1,3 +1,4 @@
+use RESTAURANTE
 // INSERCCIÓN
 > db.CLIENTES.insertOne({
   NOMBRE: "Laura Mendoza",
@@ -72,5 +73,17 @@ db.productos.aggregate([
 db.productos.aggregate([
   { $group: { _id: null, promedioPrecios: { $avg: "$Precio total" } } }
 ])
+//IGUALDAD
+// 1. Buscar un cliente por nombre exacto
+db.CLIENTE.find({ NOMBRE: "ADOLFO DUARTE RUEDA" })
+//resultado
+{
+  "_id": ObjectId("69b77eb85681f6894b593a54"),
+  "NOMBRE": "ADOLFO DUARTE RUEDA",
+  "NUMERO DE CONTACTO": "3208506564",
+  "DIRECCIÓN": "DG 18 #24",
+  "CORREO": "adolfo.nuevo@gmail.com",
+  "HISTORIAL DE PEDIDO": 20
+}
 
 
