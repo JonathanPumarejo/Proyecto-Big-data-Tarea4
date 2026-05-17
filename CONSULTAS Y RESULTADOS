@@ -1,3 +1,4 @@
+// INSERCCIÓN
 > db.CLIENTES.insertOne({
   NOMBRE: "Laura Mendoza",
   NUMERO_DE_CONTACTO: "3124567890",
@@ -5,3 +6,7 @@
   CORREO: "laura.mendoza@gmail.com",
   HISTORIAL_DE_PEDIDO: 5
 })
+{
+  acknowledged: true,
+  insertedId: ObjectId('6a093deb2873789924180639')
+}
